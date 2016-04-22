@@ -1,0 +1,5 @@
+RewriteEngine On
+# Remember slash at the end
+RewriteBase /api/ecampus-kind/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
