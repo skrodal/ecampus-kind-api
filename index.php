@@ -41,26 +41,31 @@
 
 	/** GET all REST routes */
 	$router->map('GET', '/', function () {
-		Response::result(array('status' => true, 'data' => $GLOBALS['router']->getRoutes()));
+		global $router;
+		Response::result(array('status' => true, 'data' => $router->getRoutes()));
 	}, 'List all available routes.');
 
 	$router->map('GET', '/subscription/codes/', function () {
-		Response::result($GLOBALS['kind']->getSubscriptionStatusCodeMap());
+		global $kind;
+		Response::result($kind->getSubscriptionStatusCodeMap());
 	}, 'Subscription codes mapped to textual representation.');
 
 	/** Dump of subscriber-info for service [i:id] */
 	$router->map('GET', '/service/[i:serviceId]/subscribers/', function ($serviceId) {
-		Response::result($GLOBALS['kind']->getServiceSubscribers($serviceId));
+		global $kind;
+		Response::result($kind->getServiceSubscribers($serviceId));
 	}, 'Get subscription data for all subscribers.');
 
 	/** List of emails (teknisk kontakt) for service [i:id] */
 	$router->map('GET', '/service/[i:serviceId]/mailinglist/', function ($serviceId) {
-		Response::result($GLOBALS['kind']->getServiceMailingList($serviceId));
+		global $kind;
+		Response::result($kind->getServiceMailingList($serviceId));
 	}, 'Get list of emails (teknisk kontakt) for service.');
 
 	/** Subscriber-info for org [a:org] for service [i:id] */
 	$router->map('GET', '/service/[i:serviceId]/org/[*:orgId]/', function ($serviceId, $orgId) {
-		Response::result($GLOBALS['kind']->getServiceOrgSubscriber($serviceId, $orgId));
+		global $kind;
+		Response::result($kind->getServiceOrgSubscriber($serviceId, $orgId));
 	}, 'Get subscription data for selected org subscribers.');
 
 	####################################
