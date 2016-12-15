@@ -11,3 +11,7 @@ Dette må selvfølgelig konfigureres i Dataportens API GK samt enhver klient som
 - Bruker Dataporten GateKeeper (API må altså registreres i Dataporten Dashboard).
 - Bruker AltoRouter (https://github.com/dannyvankooten/AltoRouter/blob/master/AltoRouter.php)
 - Implementerer APCu for enkel caching.
+
+## Annet ##
+
+Utviklet av Simon Skrødal for UNINETT
